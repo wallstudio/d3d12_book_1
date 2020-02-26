@@ -31,3 +31,17 @@ private:
   ComPtr<ID3D12PipelineState> m_pipeline;
 
 };
+
+
+
+extern "C" {
+    __declspec(dllexport) TriangleApp* __cdecl Init(HWND hwnd);
+}
+
+extern "C" {
+    __declspec(dllexport) void __cdecl Render(TriangleApp* app);
+}
+
+extern "C" {
+    __declspec(dllexport) void __cdecl Terminate(TriangleApp* app);
+}

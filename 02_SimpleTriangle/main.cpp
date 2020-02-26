@@ -79,3 +79,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow)
   }
   return 0;
 }
+
+TriangleApp* Init(HWND hwnd)
+{
+    TriangleApp* app = new TriangleApp();
+    app->Initialize(hwnd);
+    return app;
+}
+
+void Render(TriangleApp* app)
+{
+    app->Render();
+}
+
+void Terminate(TriangleApp* app)
+{
+    delete app;
+}
