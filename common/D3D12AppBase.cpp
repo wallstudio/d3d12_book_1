@@ -30,6 +30,11 @@ D3D12AppBase::~D3D12AppBase()
 
 void D3D12AppBase::Initialize(HWND hwnd)
 {
+    Initialize(hwnd);
+}
+
+void D3D12AppBase::Initialize(HWND hwnd, int height, int width)
+{
   HRESULT hr;
   UINT dxgiFlags = 0;
 #if defined(_DEBUG)
@@ -100,10 +105,13 @@ void D3D12AppBase::Initialize(HWND hwnd)
 
   // HWND からクライアント領域サイズを判定する。
   // (ウィンドウサイズをもらってそれを使用するのもよい)
-  RECT rect;
-  GetClientRect(hwnd, &rect);
-  int width = rect.right - rect.left;
-  int height = rect.bottom - rect.top;
+  if (width <= 0 || height <= 0)
+  {
+    RECT rect;
+    GetClientRect(hwnd, &rect);
+    width = rect.right - rect.left;
+    height = rect.bottom - rect.top;
+  }
 
   // スワップチェインの生成
   {

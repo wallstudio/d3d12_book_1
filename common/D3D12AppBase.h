@@ -20,6 +20,7 @@ public:
   virtual ~D3D12AppBase();
 
   void Initialize(HWND hWnd);
+  void Initialize(HWND hWnd, int height, int width);
   void Terminate();
 
   virtual void Render();

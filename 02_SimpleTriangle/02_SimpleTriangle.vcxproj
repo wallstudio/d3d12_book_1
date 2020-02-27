@@ -40,7 +40,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -75,6 +75,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -168,12 +169,14 @@ copy "$(WindowsSdkDir)Redist\D3D\$(PlatformTarget)\dxil.dll" $(ProjectDir)dxil.d
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\common\D3D12AppBase.cpp" />
+    <ClCompile Include="Export.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TriangleApp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\common\D3D12AppBase.h" />
     <ClInclude Include="..\common\d3dx12.h" />
+    <ClInclude Include="Export.h" />
     <ClInclude Include="TriangleApp.h" />
   </ItemGroup>
   <ItemGroup>
